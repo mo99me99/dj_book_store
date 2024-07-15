@@ -14,4 +14,6 @@ All Books
       </li>
     {% endfor %}
   </ul>
+  <p>Total number of books : {{ num_books }}</p>
+  <p>Average rating : {{ avg_rating|floatformat:1 }}</p>
 {% endblock content %}
