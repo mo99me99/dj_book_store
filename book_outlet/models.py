@@ -6,6 +6,17 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 
+class Country(models.Model):
+    name = models.CharField(max_length=80)
+    code = models.CharField(max_length=2)
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+    
+    class Meta:
+        verbose_name_plural = 'Countries'
+
+
 
 class Address(models.Model):
     street = models.CharField(max_length=50)
@@ -38,6 +49,7 @@ class Book(models.Model):
     )
     author = models.ForeignKey(
         Author, on_delete=models.CASCADE, null=True, related_name='books')
+    published_countries = models.ManyToManyField(Country)
     is_bestselling = models.BooleanField(default=False)
 
     # def save(self, *args, **kwargs):

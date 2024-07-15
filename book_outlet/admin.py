@@ -1,6 +1,10 @@
 from django.contrib import admin
-from .models import Book, Author, Address
+from .models import Book, Author, Address, Country
 # Register your models here.
+
+@admin.register(Country)
+class CountryAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(Address)
