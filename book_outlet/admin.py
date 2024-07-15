@@ -1,3 +1,10 @@
 from django.contrib import admin
-
+from .models import Book
 # Register your models here.
+
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ['title', 'author', 'rating', 'is_bestselling']
+    list_filter = ['author', 'rating', 'is_bestselling']
+    prepopulated_fields = {'slug': ('title',)}
+    

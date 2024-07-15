@@ -16,9 +16,9 @@ class Book(models.Model):
     author = models.CharField(max_length=100, null=True)
     is_bestselling = models.BooleanField(default=False)
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.slug = slugify(self.title)
+    #     return super().save(*args, **kwargs)
 
     def __str__(self) -> str:
         return f'{self.title} ({self.rating})'
